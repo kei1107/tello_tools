@@ -1,0 +1,3 @@
+/home/ubuntu/tello/udp_forward/build/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/tello/udp_forward/build/CMakeFiles/udp_forward.dir
+/home/ubuntu/tello/udp_forward/build/CMakeFiles/edit_cache.dir

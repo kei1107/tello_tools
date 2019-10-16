@@ -1,0 +1,9 @@
+https://github.com/hanyazou/TelloPy/blob/develop-0.7.0/tellopy/_internal/tello.py
+
+subscribe
+
+EVENT_VIDEO_FRAME
+
+or
+
+EVENT_VIDEO_DATA

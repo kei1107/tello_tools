@@ -28,10 +28,7 @@ int main(int argc, char *argv[])
     printf("Cannot bind address %s:%s\n", argv[1], argv[2]);
     exit(1);
   }
-
-  printf("listen\n");
   printf("Listening on %s:%s\n", argv[1], argv[2]);
-  printf("ok\n");
   // Forward address
   struct sockaddr_in fwd_addr;
   fwd_addr.sin_family = AF_INET;
@@ -50,12 +47,10 @@ int main(int argc, char *argv[])
     socklen_t from_addr_len = sizeof(from_addr);
 
     // Receive a packet
-    printf("waiting\n");
     ssize_t n = recvfrom(sock, buf, sizeof(buf), 0, (struct sockaddr *) &from_addr, &from_addr_len);
     if (n <= 0) {
       continue;
     }
-    printf("received\n");
 
     if (from_addr.sin_addr.s_addr == fwd_addr.sin_addr.s_addr && from_addr.sin_port == fwd_addr.sin_port) {
       // Packet came from forward_ip:forward_port, so this must be a response
@@ -67,7 +62,6 @@ int main(int argc, char *argv[])
     else {
       // Forward this packet
       sendto(sock, buf, (size_t) n, 0, (struct sockaddr *) &fwd_addr, sizeof(fwd_addr));
-      printf("sent data to : %s, port=%d\n",argv[3],fwd_addr.sin_port);
       if (!sender_addr.sin_addr.s_addr) {
         // Save the sender
         sender_addr = from_addr;

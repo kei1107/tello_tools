@@ -14,9 +14,9 @@
 case "$1" in
   start)
     echo "Starting tello1"
-    /home/pi/udp_forward/udp_forward 0.0.0.0 12001 192.168.10.1 8889 &
-    /home/pi/udp_forward/udp_forward 0.0.0.0 8890 192.168.86.105 13001 &
-    /home/pi/udp_forward/udp_forward 0.0.0.0 11111 192.168.86.105 14001 &
+    ./udp_forward 0.0.0.0 12001 192.168.10.1 8889 &
+    ./udp_forward 0.0.0.0 8890 192.168.90.86 13001 &
+    ./udp_forward 0.0.0.0 6038 192.168.90.86 14001 &
     ;;
   stop)
     echo "Stopping tello1"
